@@ -39,13 +39,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Processor\AbstractProcessor.cs" />
+    <Compile Include="Processor\BillProcessor.cs" />
+    <Compile Include="Processor\CoinProcessor.cs" />
     <Compile Include="DataContracts\AbstractRequest.cs" />
     <Compile Include="DataContracts\CalculateChangeRequest.cs" />
     <Compile Include="DataContracts\CalculateChangeResponse.cs" />
     <Compile Include="DataContracts\OperationReport.cs" />
     <Compile Include="PorquinhoDeOuroManager.cs" />
+    <Compile Include="Processor\ProcessorFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

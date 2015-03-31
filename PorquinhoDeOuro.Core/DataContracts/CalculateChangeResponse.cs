@@ -10,17 +10,16 @@ namespace PorquinhoDeOuro.Core.DataContracts {
 
         public CalculateChangeResponse() {
             this.OperationReportList = new List<OperationReport>();
+            this.ChangeDictionary = new Dictionary<int, long>();
         }
 
-        public long Coin100 { get; set; }
-        public long Coin50 { get; set; }
-        public long Coin25 { get; set; }
-        public long Coin10 { get; set; }
-        public long Coin5 { get; set; }
-        public long Coin1 { get; set; }
-        public Nullable<long> Result { get; set; }
+        public Nullable<long> ChangeAmount { get; set; }
 
         public List<OperationReport> OperationReportList { get; set; }
+
+        public Dictionary<int, long> ChangeDictionary { get; set; }
+
+        public bool Success { get; set; }
 
     }
 }

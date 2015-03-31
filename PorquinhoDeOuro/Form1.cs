@@ -33,16 +33,16 @@ namespace PorquinhoDeOuro {
 
             CalculateChangeResponse calculateChangeResponse = porquinhoDeOuroManager.CalculateChange(request);
 
-            if (calculateChangeResponse.Result != null) {
-                string message = string.Concat("Total do troco: ", calculateChangeResponse.Result, Environment.NewLine,
-                                                "Moedas R$ 1,00: ", calculateChangeResponse.Coin100, Environment.NewLine,
-                                                "Moedas R$ 0,50: ", calculateChangeResponse.Coin50, Environment.NewLine,
-                                                "Moedas R$ 0,25: ", calculateChangeResponse.Coin25, Environment.NewLine,
-                                                "Moedas R$ 0,10: ", calculateChangeResponse.Coin10, Environment.NewLine,
-                                                "Moedas R$ 0,05: ", calculateChangeResponse.Coin5, Environment.NewLine,
-                                                "Moedas R$ 0,01: ", calculateChangeResponse.Coin1, Environment.NewLine);
+            if (calculateChangeResponse.ChangeAmount != null) {
+                StringBuilder builder = new StringBuilder();
 
-                this.UxTxtChange.Text = message;
+                builder.Append("Total do troco: " + calculateChangeResponse.ChangeAmount + Environment.NewLine);
+
+                foreach (KeyValuePair<int, long> item in calculateChangeResponse.ChangeDictionary) {
+                    builder.AppendFormat("{0}: {1}{2}", item.Key, item.Value, Environment.NewLine);
+                }
+
+                this.UxTxtChange.Text = builder.ToString();
             }
             else {
 

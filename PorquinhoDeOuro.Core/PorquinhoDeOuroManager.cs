@@ -1,4 +1,5 @@
 ﻿using PorquinhoDeOuro.Core.DataContracts;
+using PorquinhoDeOuro.Core.Processor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,49 +10,64 @@ namespace PorquinhoDeOuro.Core {
 
     public class PorquinhoDeOuroManager {
 
-        private bool ValidateAmount(long productAmount, long receivedAmount) {
-
-            // TODO: Adicionar demais validações.
-
-            return (receivedAmount >= productAmount);
-        }
-
+        /// <summary>
+        /// evento chamado quando o usuario clica em "Calcular"
+        /// </summary>
+        /// <param name="calculateChangeRequest"></param>
+        /// <returns></returns>
         public CalculateChangeResponse CalculateChange(CalculateChangeRequest calculateChangeRequest) {
 
             CalculateChangeResponse calculateChangeResponse = new CalculateChangeResponse();
 
-            if (calculateChangeRequest.IsValid == false) {
+            try {
 
-                calculateChangeResponse.OperationReportList = calculateChangeRequest.ValidationOperationReportList;
-                return calculateChangeResponse;
+                if (calculateChangeRequest.IsValid == false) {
+                    calculateChangeResponse.OperationReportList = calculateChangeRequest.ValidationOperationReportList;
+                    return calculateChangeResponse;
+                }
+
+                // result é o valor do troco.
+                // Resultado para calcular o troco.
+                long result = calculateChangeRequest.ReceivedAmount - calculateChangeRequest.ProductAmount;
+
+                // TODO: Calcular moedas.
+
+                Dictionary<int, long> showResult = new Dictionary<int, long>();
+                long remainingChangeAmount = result;
+                do {
+                    AbstractProcessor processor = ProcessorFactory.Create(remainingChangeAmount);
+
+                    // TODO: Verificar se algum processador foi encontrado.
+
+                    Dictionary<int, long> resultDictionary = processor.Calculate(remainingChangeAmount);                   
+
+                    foreach (KeyValuePair<int, long> item in resultDictionary) {
+                        showResult.Add(item.Key, item.Value);
+                        remainingChangeAmount = remainingChangeAmount - (item.Key * item.Value);
+                    }
+
+                } while (remainingChangeAmount > 0);
+
+                calculateChangeResponse.ChangeAmount = result;
+                calculateChangeResponse.ChangeDictionary = showResult;
+                // ----------------------
+
+                calculateChangeResponse.Success = true;
             }
+            catch (Exception ex) {
 
-            Nullable<long> result = null;
+                OperationReport operationReport = new OperationReport();
 
-            int[] availableCoins = new int[] { 100, 50, 25, 10, 5, 1 };
+                operationReport.FieldName = string.Empty;
+                operationReport.Message = "Ocorreu um erro ao processar a sua requisição. Por favor, tente novamente mais tarde.";
 
-            result = calculateChangeRequest.ReceivedAmount - calculateChangeRequest.ProductAmount;
+                // TODO: Salvar a informação da exceção em log.
 
-            calculateChangeResponse.Coin100 = result.Value / availableCoins[0];
-            calculateChangeResponse.Coin50 = (result.Value % availableCoins[0]) / availableCoins[1];
-            calculateChangeResponse.Coin25 = ((result.Value % availableCoins[0]) % availableCoins[1]) / availableCoins[2];
-            calculateChangeResponse.Coin10 = (((result.Value % availableCoins[0]) % availableCoins[1]) % availableCoins[2]) / availableCoins[3];
-            calculateChangeResponse.Coin5 = ((((result.Value % availableCoins[0]) % availableCoins[1]) % availableCoins[2]) % availableCoins[3]) / availableCoins[4];
-            calculateChangeResponse.Coin1 = (((((result.Value % availableCoins[0]) % availableCoins[1]) % availableCoins[2]) % availableCoins[3]) % availableCoins[4]) / availableCoins[5];
-
-            calculateChangeResponse.Result = result;
+                calculateChangeResponse.OperationReportList.Add(operationReport);
+            }
 
             return calculateChangeResponse;
 
-        }
-
-        private bool ValidateResult(long value) {
-            if (value > 0) {
-                return true;
-            }
-            else {
-                return false;
-            }
         }
 
     }
