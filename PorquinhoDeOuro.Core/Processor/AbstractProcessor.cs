@@ -12,6 +12,23 @@ namespace PorquinhoDeOuro.Core.Processor {
 
         public abstract IEnumerable<int> GetAvailableValues();
 
-        public abstract Dictionary<int, long> Calculate(long changeAmount);
+        public virtual Dictionary<int, long> Calculate(long changeAmount) {
+
+            long actualChangeAmount = changeAmount;
+
+            Dictionary<int, long> changeResultDictionary = new Dictionary<int, long>();
+
+            foreach (int amount in this.GetAvailableValues().OrderByDescending(p => p)) {
+
+                if (actualChangeAmount < amount) { continue; }
+
+                long amountCount = actualChangeAmount / amount;
+                actualChangeAmount = actualChangeAmount - (amountCount * amount);
+
+                changeResultDictionary.Add(amount, amountCount);
+            }
+
+            return changeResultDictionary;
+        }
     }
 }

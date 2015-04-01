@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Processor\AbstractProcessor.cs" />
     <Compile Include="Processor\BillProcessor.cs" />
+    <Compile Include="Processor\CandyProcessor.cs" />
     <Compile Include="Processor\CoinProcessor.cs" />
     <Compile Include="DataContracts\AbstractRequest.cs" />
     <Compile Include="DataContracts\CalculateChangeRequest.cs" />
@@ -48,6 +49,7 @@
     <Compile Include="DataContracts\OperationReport.cs" />
     <Compile Include="PorquinhoDeOuroManager.cs" />
     <Compile Include="Processor\ProcessorFactory.cs" />
+    <Compile Include="Processor\SilverProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -10,9 +10,11 @@ namespace PorquinhoDeOuro.Core.Processor {
 
         public static AbstractProcessor Create(long changeAmount) {
 
-            AbstractProcessor[] processorList = new AbstractProcessor[] {       
+            AbstractProcessor[] processorList = new AbstractProcessor[] {   
+                new SilverProcessor(),
                 new CoinProcessor(),
-                new BillProcessor()
+                new BillProcessor(),
+                new CandyProcessor()
 
                 // TODO: Adicionar novos processadores acima desta linha.
             };

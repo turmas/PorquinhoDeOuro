@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PorquinhoDeOuro.Core.Processor {
+
     public class BillProcessor : AbstractProcessor {
 
         public BillProcessor() { }
@@ -16,25 +17,6 @@ namespace PorquinhoDeOuro.Core.Processor {
 
         public override IEnumerable<int> GetAvailableValues() {
             return new int[] { 10000, 5000, 2000, 1000, 500, 200 };
-        }
-
-        public override Dictionary<int, long> Calculate(long changeAmount) {
-
-            long actualChangeAmount = changeAmount;
-
-            Dictionary<int, long> changeResultDictionary = new Dictionary<int, long>();
-
-            foreach (int amount in this.GetAvailableValues().OrderByDescending(p => p)) {
-
-                if (actualChangeAmount <= amount) { continue; }
-
-                long amountCount = actualChangeAmount / amount;
-                actualChangeAmount = actualChangeAmount - (amountCount * amount);
-
-                changeResultDictionary.Add(amount, amountCount);
-            }
-
-            return changeResultDictionary;
         }
     }
 }

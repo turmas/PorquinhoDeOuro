@@ -34,10 +34,16 @@ namespace PorquinhoDeOuro.Core {
 
                 Dictionary<int, long> showResult = new Dictionary<int, long>();
                 long remainingChangeAmount = result;
-                do {
+                while (remainingChangeAmount > 0) {
                     AbstractProcessor processor = ProcessorFactory.Create(remainingChangeAmount);
 
-                    // TODO: Verificar se algum processador foi encontrado.
+                    if (processor == null) { 
+                        OperationReport operationReport = new OperationReport();
+
+                        operationReport.Message = "Desculpe, não foi possível processar o troco.";
+                        calculateChangeResponse.OperationReportList.Add(operationReport);
+                        return calculateChangeResponse;
+                    }
 
                     Dictionary<int, long> resultDictionary = processor.Calculate(remainingChangeAmount);                   
 
@@ -46,7 +52,7 @@ namespace PorquinhoDeOuro.Core {
                         remainingChangeAmount = remainingChangeAmount - (item.Key * item.Value);
                     }
 
-                } while (remainingChangeAmount > 0);
+                }
 
                 calculateChangeResponse.ChangeAmount = result;
                 calculateChangeResponse.ChangeDictionary = showResult;
