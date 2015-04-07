@@ -12,7 +12,7 @@ namespace PorquinhoDeOuro.Core.DataContracts {
             this.ActualOperationReportList = new List<OperationReport>();
         }
 
-        public bool IsValid {
+        internal bool IsValid {
             get {
                 this.ActualOperationReportList.Clear();
                 this.Validate();
@@ -20,7 +20,7 @@ namespace PorquinhoDeOuro.Core.DataContracts {
             }
         }
 
-        public List<OperationReport> ValidationOperationReportList {
+        internal List<OperationReport> ValidationOperationReportList {
             get { return this.ActualOperationReportList.ToList(); }
         }
 

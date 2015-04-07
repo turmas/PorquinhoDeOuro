@@ -1,0 +1,12 @@
+﻿-- Log de serviço
+
+- Log em arquivo único
+
+- Verificar se existe o arquivo de log
+- Caso não exista, criar um novo arquivo com o nome "porquinho_{data}.log"
+- Caso exista, apenas adicionar o novo conteúdo
+- Salvar conteúdo, serializado em JSON
+- [Data]: Classe.Metodo | Type | Dados (Json)
+
+----------
+

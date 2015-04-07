@@ -37,7 +37,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.UxBtnCalculate.Location = new System.Drawing.Point(52, 425);
             this.UxBtnCalculate.Name = "UxBtnCalculate";
-            this.UxBtnCalculate.Size = new System.Drawing.Size(307, 35);
+            this.UxBtnCalculate.Size = new System.Drawing.Size(805, 35);
             this.UxBtnCalculate.TabIndex = 0;
             this.UxBtnCalculate.Text = "Calcular";
             this.UxBtnCalculate.UseVisualStyleBackColor = true;
@@ -49,7 +49,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.UxTxtProductAmount.Location = new System.Drawing.Point(52, 57);
             this.UxTxtProductAmount.Name = "UxTxtProductAmount";
-            this.UxTxtProductAmount.Size = new System.Drawing.Size(307, 26);
+            this.UxTxtProductAmount.Size = new System.Drawing.Size(805, 26);
             this.UxTxtProductAmount.TabIndex = 1;
             // 
             // UxTxtReceivedAmount
@@ -58,7 +58,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.UxTxtReceivedAmount.Location = new System.Drawing.Point(52, 130);
             this.UxTxtReceivedAmount.Name = "UxTxtReceivedAmount";
-            this.UxTxtReceivedAmount.Size = new System.Drawing.Size(307, 26);
+            this.UxTxtReceivedAmount.Size = new System.Drawing.Size(805, 26);
             this.UxTxtReceivedAmount.TabIndex = 3;
             // 
             // label2
@@ -87,7 +87,7 @@
             this.UxTxtChange.Location = new System.Drawing.Point(52, 191);
             this.UxTxtChange.Multiline = true;
             this.UxTxtChange.Name = "UxTxtChange";
-            this.UxTxtChange.Size = new System.Drawing.Size(307, 199);
+            this.UxTxtChange.Size = new System.Drawing.Size(805, 199);
             this.UxTxtChange.TabIndex = 7;
             // 
             // Form1
@@ -95,7 +95,7 @@
             this.AcceptButton = this.UxBtnCalculate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(420, 500);
+            this.ClientSize = new System.Drawing.Size(918, 500);
             this.Controls.Add(this.UxTxtChange);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);

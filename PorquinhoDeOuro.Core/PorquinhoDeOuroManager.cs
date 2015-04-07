@@ -1,4 +1,5 @@
 ﻿using PorquinhoDeOuro.Core.DataContracts;
+using PorquinhoDeOuro.Core.Log;
 using PorquinhoDeOuro.Core.Processor;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,13 @@ namespace PorquinhoDeOuro.Core {
 
     public class PorquinhoDeOuroManager {
 
+        public PorquinhoDeOuroManager() {
+
+            LogManager = new LogManager();
+        }
+
+        public LogManager LogManager { get; set; }
+
         /// <summary>
         /// evento chamado quando o usuario clica em "Calcular"
         /// </summary>
@@ -17,12 +25,18 @@ namespace PorquinhoDeOuro.Core {
         /// <returns></returns>
         public CalculateChangeResponse CalculateChange(CalculateChangeRequest calculateChangeRequest) {
 
+            // salva a requisição do cliente
+            this.LogManager.Save("CalculateChange", "Request", calculateChangeRequest);
+
             CalculateChangeResponse calculateChangeResponse = new CalculateChangeResponse();
 
             try {
 
                 if (calculateChangeRequest.IsValid == false) {
                     calculateChangeResponse.OperationReportList = calculateChangeRequest.ValidationOperationReportList;
+
+                    // Log de erro na regra de negócio
+                    this.LogManager.Save("CalculateChange", "Response", calculateChangeResponse);
                     return calculateChangeResponse;
                 }
 
@@ -30,28 +44,15 @@ namespace PorquinhoDeOuro.Core {
                 // Resultado para calcular o troco.
                 long result = calculateChangeRequest.ReceivedAmount - calculateChangeRequest.ProductAmount;
 
-                // TODO: Calcular moedas.
+                Dictionary<int, long> showResult = this.CalculateChange(result);
 
-                Dictionary<int, long> showResult = new Dictionary<int, long>();
-                long remainingChangeAmount = result;
-                while (remainingChangeAmount > 0) {
-                    AbstractProcessor processor = ProcessorFactory.Create(remainingChangeAmount);
+                if (showResult == null) {
+                    OperationReport operationReport = new OperationReport();
 
-                    if (processor == null) { 
-                        OperationReport operationReport = new OperationReport();
-
-                        operationReport.Message = "Desculpe, não foi possível processar o troco.";
-                        calculateChangeResponse.OperationReportList.Add(operationReport);
-                        return calculateChangeResponse;
-                    }
-
-                    Dictionary<int, long> resultDictionary = processor.Calculate(remainingChangeAmount);                   
-
-                    foreach (KeyValuePair<int, long> item in resultDictionary) {
-                        showResult.Add(item.Key, item.Value);
-                        remainingChangeAmount = remainingChangeAmount - (item.Key * item.Value);
-                    }
-
+                    operationReport.Message = "Desculpe, não foi possível processar o troco.";
+                    calculateChangeResponse.OperationReportList.Add(operationReport);
+                    this.LogManager.Save("CalculateChange", "Response", calculateChangeResponse);
+                    return calculateChangeResponse;
                 }
 
                 calculateChangeResponse.ChangeAmount = result;
@@ -68,13 +69,36 @@ namespace PorquinhoDeOuro.Core {
                 operationReport.Message = "Ocorreu um erro ao processar a sua requisição. Por favor, tente novamente mais tarde.";
 
                 // TODO: Salvar a informação da exceção em log.
+                this.LogManager.Save("CalculateChange", "Exception", ex.ToString());
 
                 calculateChangeResponse.OperationReportList.Add(operationReport);
             }
 
+            this.LogManager.Save("CalculateChange", "Response", calculateChangeResponse);
             return calculateChangeResponse;
 
         }
 
+        private Dictionary<int, long> CalculateChange(long changeAmount) {
+
+            Dictionary<int, long> changeDictionary = new Dictionary<int, long>();
+            long remainingChangeAmount = changeAmount;
+
+            while (remainingChangeAmount > 0) {
+
+                AbstractProcessor processor = ProcessorFactory.Create(remainingChangeAmount);
+
+                if (processor == null) { return null; }
+
+                Dictionary<int, long> resultDictionary = processor.Calculate(remainingChangeAmount);
+
+                foreach (KeyValuePair<int, long> item in resultDictionary) {
+                    changeDictionary.Add(item.Key, item.Value);
+                    remainingChangeAmount = remainingChangeAmount - (item.Key * item.Value);
+                }
+            }
+
+            return changeDictionary;
+        }
     }
 }

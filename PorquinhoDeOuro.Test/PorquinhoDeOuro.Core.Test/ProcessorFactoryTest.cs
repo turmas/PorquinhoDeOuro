@@ -1,10 +1,12 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PorquinhoDeOuro.Core.Processor;
+using System.Diagnostics.CodeAnalysis;
 
 namespace PorquinhoDeOuro.Test.PorquinhoDeOuro.Core.Test {
 
     [TestClass]
+    [ExcludeFromCodeCoverage]
     public class ProcessorFactoryTest {
 
         [TestMethod]
