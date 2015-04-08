@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PorquinhoDeOuro.Core.DataContracts;
 using PorquinhoDeOuro.Core.Log;
+using PorquinhoDeOuro.Core.Utility;
+using PorquinhoDeOuro.Test.PorquinhoDeOuro.Core.Test.Mocks;
 
 namespace PorquinhoDeOuro.Test.PorquinhoDeOuro.Core.Test {
     /// <summary>
@@ -25,8 +27,10 @@ namespace PorquinhoDeOuro.Test.PorquinhoDeOuro.Core.Test {
             calculateChangeRequest.ProductAmount = 300;
             calculateChangeRequest.ReceivedAmount = 500;
 
+            IConfigurationUtility configurationUtility = new ConfigurationUtilityMock();
+
             // logar
-            LogManager logManager = new LogManager();
+            LogManager logManager = new LogManager(configurationUtility);
 
             logManager.Save("Save_LogCalculateChangeRequest_Test", "Request", calculateChangeRequest);
         }
@@ -40,7 +44,9 @@ namespace PorquinhoDeOuro.Test.PorquinhoDeOuro.Core.Test {
             calculateChangeResponse.ChangeDictionary.Add(50, 1);
             calculateChangeResponse.Success = true;
 
-            LogManager logManager = new LogManager();
+            IConfigurationUtility configurationUtility = new ConfigurationUtilityMock();
+
+            LogManager logManager = new LogManager(configurationUtility);
 
             logManager.Save("Save_LogCalculateChangeResponse_Test", "Response", calculateChangeResponse);
         }

@@ -34,6 +34,7 @@
       <HintPath>..\packages\Dlp.Framework.dll.0.6.1\lib\net45\Dlp.Framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
@@ -56,6 +57,8 @@
     <Compile Include="Processor\ProcessorFactory.cs" />
     <Compile Include="Processor\SilverProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\ConfigurationUtility.cs" />
+    <Compile Include="Utility\IConfigurationUtility.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="TODO.txt" />

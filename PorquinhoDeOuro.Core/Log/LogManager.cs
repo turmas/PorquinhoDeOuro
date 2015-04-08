@@ -1,13 +1,33 @@
 ﻿using Dlp.Framework;
+using PorquinhoDeOuro.Core.Utility;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace PorquinhoDeOuro.Core.Log {
+
     public class LogManager {
+
+        public LogManager(IConfigurationUtility configurationUtility = null) {
+
+            this.ConfigurationUtility = configurationUtility;
+        }
+
+        private IConfigurationUtility configurationUtility;
+        /// <summary>
+        /// Obtém ou define o utilitário de acesso ao arquivo de configuração.
+        /// </summary>
+        private IConfigurationUtility ConfigurationUtility {
+            get {
+                if (this.configurationUtility == null) { this.configurationUtility = new ConfigurationUtility(); }
+                return this.configurationUtility;
+            }
+            set { this.configurationUtility = value; }
+        }
 
         public void Save(string methodName, string type, object logData) {
 
@@ -15,8 +35,9 @@ namespace PorquinhoDeOuro.Core.Log {
             string serializedData = Serializer.JsonSerialize(logData);
 
             DateTime actualTime = DateTime.UtcNow;
-            string path = @"C:\logs\";
-            string fileName = "porquinho_" + actualTime.ToString("dd-MM-yyyy") + ".log";
+            string path = this.ConfigurationUtility.LogPath;
+            string fileName = string.Format(this.ConfigurationUtility.FileLogName, actualTime.ToString("dd-MM-yyyy"));
+
             string fullPath = Path.Combine(path, fileName);
 
             try {
@@ -25,7 +46,7 @@ namespace PorquinhoDeOuro.Core.Log {
                     Directory.CreateDirectory(path);
                 }
 
-                 // Verifica se o arquivo existe, caso não exista, um novo é criado.
+                // Verifica se o arquivo existe, caso não exista, um novo é criado.
                 if (File.Exists(fullPath) == false) {
                     File.Create(fullPath).Dispose();
                 }
@@ -36,13 +57,13 @@ namespace PorquinhoDeOuro.Core.Log {
             }
             catch (Exception Ex) {
                 Console.WriteLine(Ex.ToString());
-            }  
+            }
 
         }
     }
 }
 
 
-        
-    
+
+
 

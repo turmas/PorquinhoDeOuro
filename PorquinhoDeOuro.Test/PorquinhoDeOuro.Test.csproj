@@ -55,6 +55,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="PorquinhoDeOuro.Core.Test\LogManagerTest.cs" />
+    <Compile Include="PorquinhoDeOuro.Core.Test\Mocks\ConfigurationUtilityMock.cs" />
     <Compile Include="PorquinhoDeOuro.Core.Test\ProcessorFactoryTest.cs" />
     <Compile Include="PorquinhoDeOuro.Core.Test\PorquinhoDeOuroManagerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
