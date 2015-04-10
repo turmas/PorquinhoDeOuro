@@ -7,5 +7,6 @@ namespace PorquinhoDeOuro.Core.Utility {
         string FileLogName { get; }
         string FullName { get; }
         string LogPath { get; }
+        string LogType { get; }
     }
 }

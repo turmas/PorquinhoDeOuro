@@ -1,6 +1,9 @@
-﻿using PorquinhoDeOuro.Core.DataContracts;
+﻿using Dlp.Framework.Container;
+using PorquinhoDeOuro.Core.DataContracts;
+using PorquinhoDeOuro.Core.Interceptors;
 using PorquinhoDeOuro.Core.Log;
 using PorquinhoDeOuro.Core.Processor;
+using PorquinhoDeOuro.Core.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,10 +16,21 @@ namespace PorquinhoDeOuro.Core {
 
         public PorquinhoDeOuroManager() {
 
-            LogManager = new LogManager();
+            IocFactory.Register(
+
+                Component.For<IConfigurationUtility>()
+                    .ImplementedBy<ConfigurationUtility>().IsSingleton(),
+
+                   Component.For<ILog>()
+                   .ImplementedBy<FileLog>("FileLog")
+                   .ImplementedBy<EventViewerLog>("EventLog")
+                   .Interceptor<LogInterceptor>()
+                );
+
+            this.Log = LogFactory.Create();
         }
 
-        public LogManager LogManager { get; set; }
+        internal ILog Log { get; set; }
 
         /// <summary>
         /// evento chamado quando o usuario clica em "Calcular"
@@ -26,7 +40,7 @@ namespace PorquinhoDeOuro.Core {
         public CalculateChangeResponse CalculateChange(CalculateChangeRequest calculateChangeRequest) {
 
             // salva a requisição do cliente
-            this.LogManager.Save("CalculateChange", "Request", calculateChangeRequest);
+            this.Log.Save("CalculateChange", "Request", calculateChangeRequest);
 
             CalculateChangeResponse calculateChangeResponse = new CalculateChangeResponse();
 
@@ -36,7 +50,7 @@ namespace PorquinhoDeOuro.Core {
                     calculateChangeResponse.OperationReportList = calculateChangeRequest.ValidationOperationReportList;
 
                     // Log de erro na regra de negócio
-                    this.LogManager.Save("CalculateChange", "Response", calculateChangeResponse);
+                    this.Log.Save("CalculateChange", "Response", calculateChangeResponse);
                     return calculateChangeResponse;
                 }
 
@@ -51,7 +65,7 @@ namespace PorquinhoDeOuro.Core {
 
                     operationReport.Message = "Desculpe, não foi possível processar o troco.";
                     calculateChangeResponse.OperationReportList.Add(operationReport);
-                    this.LogManager.Save("CalculateChange", "Response", calculateChangeResponse);
+                    this.Log.Save("CalculateChange", "Response", calculateChangeResponse);
                     return calculateChangeResponse;
                 }
 
@@ -68,15 +82,14 @@ namespace PorquinhoDeOuro.Core {
                 operationReport.FieldName = string.Empty;
                 operationReport.Message = "Ocorreu um erro ao processar a sua requisição. Por favor, tente novamente mais tarde.";
 
-                // TODO: Salvar a informação da exceção em log.
-                this.LogManager.Save("CalculateChange", "Exception", ex.ToString());
+                // Salva a informação da exceção em log.
+                this.Log.Save("CalculateChange", "Exception", ex.ToString());
 
                 calculateChangeResponse.OperationReportList.Add(operationReport);
             }
 
-            this.LogManager.Save("CalculateChange", "Response", calculateChangeResponse);
+            this.Log.Save("CalculateChange", "Response", calculateChangeResponse);
             return calculateChangeResponse;
-
         }
 
         private Dictionary<int, long> CalculateChange(long changeAmount) {

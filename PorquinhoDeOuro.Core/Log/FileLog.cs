@@ -1,42 +1,27 @@
 ﻿using Dlp.Framework;
+using Dlp.Framework.Container;
 using PorquinhoDeOuro.Core.Utility;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace PorquinhoDeOuro.Core.Log {
+    public class FileLog : AbstractLog {
 
-    public class LogManager {
+        public override void Save(string methodName, string type, object logData) {
 
-        public LogManager(IConfigurationUtility configurationUtility = null) {
-
-            this.ConfigurationUtility = configurationUtility;
-        }
-
-        private IConfigurationUtility configurationUtility;
-        /// <summary>
-        /// Obtém ou define o utilitário de acesso ao arquivo de configuração.
-        /// </summary>
-        private IConfigurationUtility ConfigurationUtility {
-            get {
-                if (this.configurationUtility == null) { this.configurationUtility = new ConfigurationUtility(); }
-                return this.configurationUtility;
-            }
-            set { this.configurationUtility = value; }
-        }
-
-        public void Save(string methodName, string type, object logData) {
+            // Obtém uma instancia do utilitário de acesso ao arquivo de configuração.
+            IConfigurationUtility configurationUtility = Dlp.Framework.Container.IocFactory.Resolve<IConfigurationUtility>();
 
             // Serializa o objeto recebido para uma string no formato JSON.
             string serializedData = Serializer.JsonSerialize(logData);
 
             DateTime actualTime = DateTime.UtcNow;
-            string path = this.ConfigurationUtility.LogPath;
-            string fileName = string.Format(this.ConfigurationUtility.FileLogName, actualTime.ToString("dd-MM-yyyy"));
+            string path = configurationUtility.LogPath;
+            string fileName = string.Format(configurationUtility.FileLogName, actualTime.ToString("dd-MM-yyyy"));
 
             string fullPath = Path.Combine(path, fileName);
 
@@ -60,10 +45,7 @@ namespace PorquinhoDeOuro.Core.Log {
             }
 
         }
+
+        
     }
 }
-
-
-
-
-

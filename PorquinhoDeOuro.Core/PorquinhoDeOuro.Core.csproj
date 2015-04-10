@@ -44,7 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Log\LogManager.cs" />
+    <Compile Include="Interceptors\LogInterceptor.cs" />
+    <Compile Include="Log\AbstractLog.cs" />
+    <Compile Include="Log\EventLog.cs" />
+    <Compile Include="Log\FileLog.cs" />
+    <Compile Include="Log\ILog.cs" />
+    <Compile Include="Log\LogFactory.cs" />
     <Compile Include="Processor\AbstractProcessor.cs" />
     <Compile Include="Processor\BillProcessor.cs" />
     <Compile Include="Processor\CandyProcessor.cs" />

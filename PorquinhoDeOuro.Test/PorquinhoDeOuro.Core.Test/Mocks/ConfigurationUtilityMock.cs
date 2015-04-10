@@ -21,5 +21,7 @@ namespace PorquinhoDeOuro.Test.PorquinhoDeOuro.Core.Test.Mocks {
         public string LogPath {
             get { return @"C:\Logs\Test"; }
         }
+
+        public string LogType { get; set; }
     }
 }

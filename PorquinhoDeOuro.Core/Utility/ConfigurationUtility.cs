@@ -23,5 +23,10 @@ namespace PorquinhoDeOuro.Core.Utility {
         public string FullName {
             get { return Path.Combine(this.LogPath, this.FileLogName); }
         }
+
+        public string LogType {
+            get { return ConfigurationManager.AppSettings["LogType"]; }
+        }
+
     }
 }
