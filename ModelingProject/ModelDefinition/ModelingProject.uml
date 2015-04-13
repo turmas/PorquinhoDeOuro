@@ -1,0 +1,749 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner"
+  dslVersion="1.0.0.0"
+  Id="e964eaf4-fc4f-4612-bc3e-9b66399e71e5"
+  name="ModelingProject" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <ownedCommentsInternal>
+    <comment
+      Id="6c1157b7-efdb-45e7-9442-63ea911a9b42">
+      <body>Cada usuário tem 3 tentativas</body>
+      <annotatedElements>
+        <opaqueActionMoniker
+          Id="9f5a76d3-4ae4-4276-bbf0-223fcacdafb1"
+          LastKnownName="Verificar tentativas restantes de login"
+          LastKnownLocation="ModelingProject.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="bdd49846-5035-40eb-8515-e9b0cd167256">
+      <body>Valida se o valor do produto é válido e se o recebido é &gt;= ao valor do produto</body>
+      <annotatedElements>
+        <opaqueActionMoniker
+          Id="cdbd78af-cfe4-494c-99cb-57e771d8e565"
+          LastKnownName="Validar dados inseridos"
+          LastKnownLocation="ModelingProject.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="678242fc-0bbf-4e9a-b059-66271ec2c6b3">
+      <body>Responsável por processar Moedas ou Cédulas</body>
+      <annotatedElements>
+        <opaqueActionMoniker
+          Id="ccbb5624-150c-4879-bb4a-49d8a5270af5"
+          LastKnownName="Buscar Processador"
+          LastKnownLocation="ModelingProject.uml" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <actor
+        Id="580e807b-f90e-4001-8a66-2b6f91b0a2f3"
+        name="Usuário"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="8c7c4d5d-9577-40c7-bd71-9e0f0086b1a2"
+            isDerived="false"
+            sourceEndRoleName="Usuário"
+            targetEndRoleName="Validar senha"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="bc8bbd4f-99e9-410e-b0b2-80ee71ffee81"
+              LastKnownName="Validar senha"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ffff9328-03e5-4ad7-95c2-523a233cdf17"
+                  name="Usuário"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c0d8eb81-d204-4732-9140-b0249311af41"
+                  name="Validar senha"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="dcb8e178-9047-4078-8204-3966150e60da"
+            isDerived="false"
+            sourceEndRoleName="Usuário"
+            targetEndRoleName="Redirecionar para tela inicial"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="ec11c1b5-a066-4a86-95f9-79bd66799dd2"
+              LastKnownName="Acessa tela inicial"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ec226798-cee3-4ea4-9092-04aee91efe44"
+                  name="Usuário"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6477feb9-e3cb-4b60-99aa-0eb256c1a3a9"
+                  name="Redirecionar para tela inicial"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="bc8bbd4f-99e9-410e-b0b2-80ee71ffee81"
+        name="Validar senha"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ec11c1b5-a066-4a86-95f9-79bd66799dd2"
+        name="Acessa tela inicial"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="3213a3d6-bbb7-4f71-a8ea-8252cf3e65fe"
+        name="Verificar se usuário esta cadastrado"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="63cc6cc5-758c-4d6b-9ceb-4326c371edc5">
+            <useCaseMoniker
+              Id="bc8bbd4f-99e9-410e-b0b2-80ee71ffee81"
+              LastKnownName="Validar senha"
+              LastKnownLocation="ModelingProject.uml" />
+          </dependency>
+        </suppliersInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="ee13eb0c-bcf6-45ef-b424-937b046517ac"
+        name="Fábio"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="a5dc7902-bed9-4d4a-b1ea-5812dfff17eb"
+            isDerived="false"
+            sourceEndRoleName="Fábio"
+            targetEndRoleName="UseCase1"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="c3b2ac8e-f244-451b-b89f-fa8522949c4e"
+              LastKnownName="Informar valor compra"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f30dd5c2-2334-465a-b72e-a11ea6820505"
+                  name="Fábio"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="08ea6bc9-a093-4227-b954-c182161d6bcc"
+                  name="UseCase1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="8d3b1bea-3bcd-49fe-99c4-ec931aea4187"
+            isDerived="false"
+            sourceEndRoleName="Fábio"
+            targetEndRoleName="UseCase1"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="2f7ba1bd-f8b6-4445-a2de-8f2f92add957"
+              LastKnownName="Receber troco"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="addcf3f5-e44f-457f-9135-ba349569d408"
+                  name="Fábio"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9e0736a3-c725-4d60-9e64-985087bf7bd4"
+                  name="UseCase1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="fe8a2758-5fd4-40c5-b7e6-e2d693433ac7"
+            isDerived="false"
+            sourceEndRoleName="Fábio"
+            targetEndRoleName="Consulta - moedas utilizadas"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="4e3ebca1-e9ab-427a-9ae5-a65e222e73bc"
+              LastKnownName="Consulta - moedas utilizadas"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4541f75b-74af-4c85-b144-8ae3324e7b80"
+                  name="Fábio"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8c2ee57d-5474-4047-97fa-2d6d634c2154"
+                  name="Consulta - moedas utilizadas"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c3b2ac8e-f244-451b-b89f-fa8522949c4e"
+        name="Informar valor compra"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="2f7ba1bd-f8b6-4445-a2de-8f2f92add957"
+        name="Receber troco"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="4e3ebca1-e9ab-427a-9ae5-a65e222e73bc"
+        name="Consulta - moedas utilizadas"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="2b4e00fe-dfcd-4cc2-8be0-c15c8152a4c4"
+        name="Validar e incluir descontos"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="cb64e9a7-e7cc-4e82-b0ca-2244f8cfffd5">
+            <useCaseMoniker
+              Id="c3b2ac8e-f244-451b-b89f-fa8522949c4e"
+              LastKnownName="Informar valor compra"
+              LastKnownLocation="ModelingProject.uml" />
+          </dependency>
+        </suppliersInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="abe5e8c1-9860-435d-81ae-c92caf055c68"
+        name="LoginActivity"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="b6a2c646-ed25-42bc-bfe7-b26bfc11e45f"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="a7ee2be2-4924-4e27-85bb-b46aff091bb9"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="1cc8b88d-4bfc-402d-b74e-da69010b7092"
+                  LastKnownName="Merge1"
+                  LastKnownLocation="ModelingProject.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="a0b4fec3-bcbd-439f-a2d5-60db99c19af5"
+            name="Validar credenciais"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="274bf0e3-ac3d-45b3-8711-8053339d0f79"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="75e9d672-33c3-4304-b60c-93a7a68bfbe4"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="ModelingProject.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="75e9d672-33c3-4304-b60c-93a7a68bfbe4"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="96e97aa1-f631-4f6d-b703-95afe88acac1"
+                guard="Credenciais válidas"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="c333795d-b569-45a7-9d4b-9b5136844cf9"
+                  LastKnownName="Redirecionar para a tela inicial"
+                  LastKnownLocation="ModelingProject.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="87c93eb0-f146-4f51-ac0f-027f96e9f059"
+                guard="Inválido"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="9f5a76d3-4ae4-4276-bbf0-223fcacdafb1"
+                  LastKnownName="Verificar tentativas restantes de login"
+                  LastKnownLocation="ModelingProject.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="c333795d-b569-45a7-9d4b-9b5136844cf9"
+            name="Redirecionar para a tela inicial"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="6f8c2d67-ece8-426e-a988-e4eb06a59f5c"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="ec8538b2-75a5-4ec3-a10a-6088e611a08b"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="ModelingProject.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode
+            Id="ec8538b2-75a5-4ec3-a10a-6088e611a08b"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <opaqueAction
+            Id="9f5a76d3-4ae4-4276-bbf0-223fcacdafb1"
+            name="Verificar tentativas restantes de login"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="d0a2b4ec-f36e-4323-855f-0d9196997295"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="e590baf2-72c8-4f05-aef0-ee3ecfc69b5f"
+                  LastKnownName="Decision2"
+                  LastKnownLocation="ModelingProject.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="db1acb5d-0fd2-4877-922f-c68b924664ef"
+                isLeaf="false">
+                <forkNodeMoniker
+                  Id="21e91824-e7cc-4583-b82d-6b5cdfc2542d"
+                  LastKnownName="Fork1"
+                  LastKnownLocation="ModelingProject.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="e590baf2-72c8-4f05-aef0-ee3ecfc69b5f"
+            name="Decision2"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="819cab4d-cff1-4e67-ae25-2633bc4b1885"
+                guard="Sem tentativas restantes"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="fe9c9367-4d84-42ac-85ef-878c784938a4"
+                  LastKnownName="ActivityFinal2"
+                  LastKnownLocation="ModelingProject.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="b51e3f98-8a44-4faf-9052-bea497fd1d7c"
+                guard="Ainda restam tentativas"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="1cc8b88d-4bfc-402d-b74e-da69010b7092"
+                  LastKnownName="Merge1"
+                  LastKnownLocation="ModelingProject.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <activityFinalNode
+            Id="fe9c9367-4d84-42ac-85ef-878c784938a4"
+            name="ActivityFinal2"
+            isLeaf="false" />
+          <mergeNode
+            Id="1cc8b88d-4bfc-402d-b74e-da69010b7092"
+            name="Merge1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="3702cb5a-9674-4eda-8233-edfaefb886d6"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="a0b4fec3-bcbd-439f-a2d5-60db99c19af5"
+                  LastKnownName="Validar credenciais"
+                  LastKnownLocation="ModelingProject.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </mergeNode>
+          <forkNode
+            Id="21e91824-e7cc-4583-b82d-6b5cdfc2542d"
+            name="Fork1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="ca30231c-e403-4235-bf23-33844808e122"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="12711d83-59d3-4db9-8253-fc1ab6fc3103"
+                  LastKnownName="Enviar email de falha"
+                  LastKnownLocation="ModelingProject.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="6ab1cbb4-566e-43e4-8822-3ad387e984bd"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="eee06504-798e-4f45-9899-c22e0d4fa8da"
+                  LastKnownName="Salvar registro de tentativa de acesso suspeito"
+                  LastKnownLocation="ModelingProject.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </forkNode>
+          <opaqueAction
+            Id="12711d83-59d3-4db9-8253-fc1ab6fc3103"
+            name="Enviar email de falha"
+            isLeaf="false" />
+          <opaqueAction
+            Id="eee06504-798e-4f45-9899-c22e0d4fa8da"
+            name="Salvar registro de tentativa de acesso suspeito"
+            isLeaf="false" />
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="3dac5eda-7b59-4394-ae2f-2fd3279994ed"
+        name="PorquinhoDeOuroDiagram"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="de256342-dd23-4a45-b70b-6e8a3aa0fc7f"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="3e6ea09e-f5c2-4c05-97e8-4433d1e1b8f4"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="cdbd78af-cfe4-494c-99cb-57e771d8e565"
+                  LastKnownName="Validar dados inseridos"
+                  LastKnownLocation="ModelingProject.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="cdbd78af-cfe4-494c-99cb-57e771d8e565"
+            name="Validar dados inseridos"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="968334ac-d923-4da7-8d9c-24c7a3a9be43"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="332869a2-8cda-4613-a495-960826c67d2c"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="ModelingProject.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="332869a2-8cda-4613-a495-960826c67d2c"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="f0661d08-8a26-4bc2-b0f6-0ef11699da77"
+                guard="Valor válido"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="3eb77cbd-98a6-4c0b-9905-8a4bc69e9934"
+                  LastKnownName="Calcular troco total"
+                  LastKnownLocation="ModelingProject.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="d96b7c47-d969-433f-b5a1-4ca8300b6c72"
+                guard="Valor Inválido"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="16cbe789-1053-4a8a-b72c-6e657e844671"
+                  LastKnownName="ActivityFinal2"
+                  LastKnownLocation="ModelingProject.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="3eb77cbd-98a6-4c0b-9905-8a4bc69e9934"
+            name="Calcular troco total"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="e2096d3d-e18e-4791-baac-8794e591f819"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="0551b8a5-209e-4760-9e80-d1b027b2ea8c"
+                  LastKnownName="Decision2"
+                  LastKnownLocation="ModelingProject.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="5ae61dc3-5d22-4af8-b7e3-aef67bcac162"
+            name="Direcionar p/ processador"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="31849590-b2d3-428d-8e51-b6964be7f4f0"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="041fcef5-c23d-49a2-b0ca-f6ef2974ed55"
+                  LastKnownName="Decision3"
+                  LastKnownLocation="ModelingProject.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="0551b8a5-209e-4760-9e80-d1b027b2ea8c"
+            name="Decision2"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="53d6ab5d-d835-4071-bb37-354ea8d39b7f"
+                guard="Valor=0"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="b329155a-5de1-4728-9845-a0b16ed46729"
+                  LastKnownName="ActivityFinal3"
+                  LastKnownLocation="ModelingProject.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="13f03b9a-f11d-48bb-91db-eace9bec3dcb"
+                guard="Valor &gt; 0"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="ccbb5624-150c-4879-bb4a-49d8a5270af5"
+                  LastKnownName="Buscar Processador"
+                  LastKnownLocation="ModelingProject.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <activityFinalNode
+            Id="4996c9e2-56c8-4e25-be56-edbea07371b7"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <activityFinalNode
+            Id="16cbe789-1053-4a8a-b72c-6e657e844671"
+            name="ActivityFinal2"
+            isLeaf="false" />
+          <activityFinalNode
+            Id="b329155a-5de1-4728-9845-a0b16ed46729"
+            name="ActivityFinal3"
+            isLeaf="false" />
+          <decisionNode
+            Id="041fcef5-c23d-49a2-b0ca-f6ef2974ed55"
+            name="Decision3"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="8712f963-d920-4a01-8801-6c546b0c0f9f"
+                guard="Ainda há troco p/ dar"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="ccbb5624-150c-4879-bb4a-49d8a5270af5"
+                  LastKnownName="Buscar Processador"
+                  LastKnownLocation="ModelingProject.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="834f33c2-9e32-4161-82f5-9e77276bb336"
+                guard="Nã há mais troco para dar"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="4996c9e2-56c8-4e25-be56-edbea07371b7"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="ModelingProject.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="ccbb5624-150c-4879-bb4a-49d8a5270af5"
+            name="Buscar Processador"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="f95beb5b-09ef-44af-bc05-31b66e5bfe07"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="77a10870-2528-4246-9671-1f60f934e002"
+                  LastKnownName="Decision4"
+                  LastKnownLocation="ModelingProject.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="77a10870-2528-4246-9671-1f60f934e002"
+            name="Decision4"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="0ec05a2b-e2f3-4b45-ab7a-e2b49abc2673"
+                guard="Encontra processador"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="5ae61dc3-5d22-4af8-b7e3-aef67bcac162"
+                  LastKnownName="Direcionar p/ processador"
+                  LastKnownLocation="ModelingProject.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="69499b6f-456c-49cf-8330-4fcb04698bab"
+                guard="Processador NÃO encontrado"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="6a7a50f9-4962-4502-9745-0dc4622632a2"
+                  LastKnownName="ActivityFinal4"
+                  LastKnownLocation="ModelingProject.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <activityFinalNode
+            Id="6a7a50f9-4962-4502-9745-0dc4622632a2"
+            name="ActivityFinal4"
+            isLeaf="false" />
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

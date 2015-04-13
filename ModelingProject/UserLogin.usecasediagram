@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="ea19aded-6ecd-4159-a542-7a7895d53ae4" name="UserLogin" linkedPackageId="565901db-89d9-4538-a359-6ed6a384e132" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="a03b8f02-7f70-410d-9623-b3c0009462d2">
+      <profileInstance Id="9a6b59a8-5616-4ac0-b124-1e657610aeb3" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="f336f3a7-0974-4cc7-bdeb-80e824404233">
+      <profileInstance Id="1aa42516-a46c-4436-9548-0d57e8feb246" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="6e62c115-2b8e-4437-bd41-e06e9b759202" name="Usuário" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="580e807b-f90e-4001-8a66-2b6f91b0a2f3" />
+        <targetEnds>
+          <association Id="9faf7f32-0fcf-4e20-b735-7b7e8df3c48f" isDerived="false" sourceEndRoleName="Usuário" targetEndRoleName="Validar senha" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="c2bad149-4c0a-4449-a51a-4ee7418a59b4" LastKnownName="Validar senha" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="188e164d-3ccc-4643-8c6f-d334e1cbc4bc" name="Usuário" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="ffff9328-03e5-4ad7-95c2-523a233cdf17" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b33834d0-038f-49c2-a997-4de5dc853077" name="Validar senha" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="c0d8eb81-d204-4732-9140-b0249311af41" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="8c7c4d5d-9577-40c7-bd71-9e0f0086b1a2" />
+          </association>
+          <association Id="b05011cc-5870-4fd8-9a3a-7ca608dbf89f" isDerived="false" sourceEndRoleName="Usuário" targetEndRoleName="Redirecionar para tela inicial" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="d2636b09-1f64-4b62-8f27-34bdccc355e1" LastKnownName="Acessa tela inicial" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8e31e4d8-5046-48ab-b1a6-e769518ff492" name="Usuário" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="ec226798-cee3-4ea4-9092-04aee91efe44" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="125f90da-b711-4a62-a6cc-6e463352dd66" name="Redirecionar para tela inicial" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="6477feb9-e3cb-4b60-99aa-0eb256c1a3a9" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="dcb8e178-9047-4078-8204-3966150e60da" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="c2bad149-4c0a-4449-a51a-4ee7418a59b4" name="Validar senha" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="bc8bbd4f-99e9-410e-b0b2-80ee71ffee81" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="d2636b09-1f64-4b62-8f27-34bdccc355e1" name="Acessa tela inicial" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ec11c1b5-a066-4a86-95f9-79bd66799dd2" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="48cf4529-6ebe-4f46-8a11-a074cf7a67c2" name="Verificar se usuário esta cadastrado" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="3213a3d6-bbb7-4f71-a8ea-8252cf3e65fe" />
+        <suppliersInternal>
+          <dependency Id="f21728f1-07c0-4d68-b3f8-41a22a68a9ef">
+            <useCaseMoniker Id="c2bad149-4c0a-4449-a51a-4ee7418a59b4" LastKnownName="Validar senha" />
+            <elementDefinition Id="63cc6cc5-758c-4d6b-9ceb-4326c371edc5" />
+          </dependency>
+        </suppliersInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="565901db-89d9-4538-a359-6ed6a384e132" name="ModelingProject">
+    <elementDefinition Id="e964eaf4-fc4f-4612-bc3e-9b66399e71e5" />
+  </package>
+</useCaseModelRoot>

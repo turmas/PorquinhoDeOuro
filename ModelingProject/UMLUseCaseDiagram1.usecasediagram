@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="8b0236c8-b9d0-4c84-b64a-f45fa556ef89" name="PorquinhodeOuro_UseCase" linkedPackageId="ea341b1e-9a5e-45a8-9626-606f635a6296" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="b5c9943b-bdee-46db-afa6-6ff3ed0d7669">
+      <profileInstance Id="693b0161-1a63-4eea-bdd8-3249bbcf7c89" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="3cbbe9ab-d578-4449-9d74-020ff92707de">
+      <profileInstance Id="5cac9fe3-2c2a-4355-b8b3-6943a9726f25" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="6d2c82b7-aa1e-418d-b4b7-4fad2785ed58" name="Fábio" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ee13eb0c-bcf6-45ef-b424-937b046517ac" />
+        <targetEnds>
+          <association Id="21cfc1d5-5d1d-4269-9337-2e1bdb9ccd3c" isDerived="false" sourceEndRoleName="Fábio" targetEndRoleName="UseCase1" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="1878dc59-7640-4ec6-b40f-db744acb7636" LastKnownName="Informar valor compra" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ffc7f351-11ff-4145-b8bf-b1a18afc3fbe" name="Fábio" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="f30dd5c2-2334-465a-b72e-a11ea6820505" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f304996b-0c67-4f9c-87da-29463ae250d1" name="UseCase1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="08ea6bc9-a093-4227-b954-c182161d6bcc" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="a5dc7902-bed9-4d4a-b1ea-5812dfff17eb" />
+          </association>
+          <association Id="f3e14d57-79cf-48a1-9479-38d2b0660818" isDerived="false" sourceEndRoleName="Fábio" targetEndRoleName="UseCase1" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="1c81b5e3-e970-4caf-b1fa-33fbd94f2499" LastKnownName="Receber troco" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="65d168bc-26da-43cd-baff-b0e8f431d13b" name="Fábio" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="addcf3f5-e44f-457f-9135-ba349569d408" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c95d47d2-88a0-4138-abf4-578729402c67" name="UseCase1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="9e0736a3-c725-4d60-9e64-985087bf7bd4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="8d3b1bea-3bcd-49fe-99c4-ec931aea4187" />
+          </association>
+          <association Id="d61b28ca-ac70-4933-973d-2c1703d43f94" isDerived="false" sourceEndRoleName="Fábio" targetEndRoleName="Consulta - moedas utilizadas" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="4a338183-d208-4011-b95f-2c847d62d1c0" LastKnownName="Consulta - moedas utilizadas" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3e17d443-7770-419c-a5a7-60478631aaa2" name="Fábio" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="4541f75b-74af-4c85-b144-8ae3324e7b80" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a955d7a4-51f6-4854-b285-e66972ae630c" name="Consulta - moedas utilizadas" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="8c2ee57d-5474-4047-97fa-2d6d634c2154" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="fe8a2758-5fd4-40c5-b7e6-e2d693433ac7" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="1878dc59-7640-4ec6-b40f-db744acb7636" name="Informar valor compra" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c3b2ac8e-f244-451b-b89f-fa8522949c4e" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="1c81b5e3-e970-4caf-b1fa-33fbd94f2499" name="Receber troco" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2f7ba1bd-f8b6-4445-a2de-8f2f92add957" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="4a338183-d208-4011-b95f-2c847d62d1c0" name="Consulta - moedas utilizadas" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4e3ebca1-e9ab-427a-9ae5-a65e222e73bc" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="ea341b1e-9a5e-45a8-9626-606f635a6296" name="ModelingProject">
+    <elementDefinition Id="e964eaf4-fc4f-4612-bc3e-9b66399e71e5" />
+  </package>
+</useCaseModelRoot>
